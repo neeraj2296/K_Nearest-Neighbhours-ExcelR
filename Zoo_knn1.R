@@ -47,6 +47,6 @@ fit # the optimum value for k should be 7
 #Visualizing the output
 plot(fit)
 varImp(fit)
-#predicting using te data set
+#predicting using the data set's clusters.
 pred <- predict(fit, test )
 confusionMatrix(pred, test$type)
