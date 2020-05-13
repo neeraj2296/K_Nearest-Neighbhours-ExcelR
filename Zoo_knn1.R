@@ -1,10 +1,10 @@
+#Loading the data set
 zoo <- read.csv(file.choose())
-
 View(zoo)
-
+#Removing unecassary columns from the data set
 zu <- zoo[,2:18]  
 str(zu)
-
+#factorising all the varaibles.
 zu$hair <- as.factor(zu$hair)
 zu$feathers <- as.factor(zu$feathers)
 zu$eggs <- as.factor(zu$eggs)
@@ -44,9 +44,9 @@ fit <- train(type ~., data = train, method = 'knn', tuneLength = 20,
 # Model Performance :
 fit # the optimum value for k should be 7
 
+#Visualizing the output
 plot(fit)
-
 varImp(fit)
-
+#predicting using te data set
 pred <- predict(fit, test )
 confusionMatrix(pred, test$type)
